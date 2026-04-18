@@ -1,0 +1,8 @@
+[project]
+name = "reaction-lab"
+version = "0.1.0"
+description = "Build a reaction time game"
+requires-python = ">=3.11"
+dependencies = [
+    "flask",
+]
