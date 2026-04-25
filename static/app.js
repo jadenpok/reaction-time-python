@@ -23,6 +23,7 @@ const roundTimeElements = Array.from(
 
 let currentRound = 0;
 let isReady = false;
+let isHandlingClick = false;
 let startTime = 0;
 let results = [];
 let readyTimeoutId = null;
@@ -44,11 +45,11 @@ function startGame() {
   document.body.classList.add("playing-mode");
   currentRound = 0;
   results = [];
+  isHandlingClick = false;
   startRound();
 }
 
-function startRound() {
-  currentRound += 1;
+function beginWaiting() {
   isReady = false;
   setPanel("waiting", "WAIT", "");
 
@@ -62,20 +63,34 @@ function startRound() {
   }, delay);
 }
 
+function startRound() {
+  currentRound += 1;
+  beginWaiting();
+}
+
 function handlePanelClick() {
+  if (isHandlingClick) return;
+
   if (!isReady) {
+    isHandlingClick = true;
     clearTimeout(readyTimeoutId);
-    setPanel("early", "TOO SOON!", "Tap to retry");
-    setTimeout(() => startRound(), 1000);
+    setPanel("early", "TOO SOON", "");
+    setTimeout(() => {
+      isHandlingClick = false;
+      beginWaiting();
+    }, 1000);
     return;
   }
 
+  isReady = false;
+  isHandlingClick = true;
   const reactionTime = performance.now() - startTime;
   results.push(reactionTime);
 
   setPanel("result", formatMilliseconds(reactionTime), "");
 
   setTimeout(() => {
+    isHandlingClick = false;
     if (currentRound < TOTAL_ROUNDS) {
       startRound();
     } else {

@@ -39,20 +39,7 @@
         "files.autoSaveDelay": 1000,
         "terminal.integrated.cwd": "${workspaceFolder}",
 
-        "files.exclude": {
-          "**/__pycache__": true,
-          "**/.pytest_cache": true,
-          ".devcontainer": true,
-          ".gitignore": true,
-          ".venv": true,
-          "*.code-workspace": true,
-          "app.py": true,
-          "pyproject.toml": true,
-          "solution": true,
-          "static": true,
-          "templates": true,
-          "uv.lock": true
-        }
+       
       },
       "extensions": [
         "ms-python.python"

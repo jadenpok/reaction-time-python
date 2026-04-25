@@ -70,10 +70,10 @@ select {
 }
 
 /* Desktop: larger screens get max-width/height and rounded corners */
-@media (min-width: 641px) and (min-height: 700px) {
+@media (min-width: 441px) and (min-height: 500px) {
     .app-container {
-        width: 500px;
-        height: 650px;
+        width: 400px;
+        height: 450px;
         border-radius: 8px;
         padding: 36px 18px;
     }
@@ -335,7 +335,7 @@ body.playing-mode .app-footer {
     display: none;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 440px) {
     body.playing-mode .app-container {
         max-width: none;
         max-height: none;
@@ -352,7 +352,7 @@ body.playing-mode #playing-state {
     min-height: 0;
 }
 
-@media (min-width: 641px) {
+@media (min-width: 441px) {
     .game-hud {
         height: 60px;
     }

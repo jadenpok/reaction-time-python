@@ -4,7 +4,7 @@ A reaction-time game with a Python backend. Complete the functions in `exercises
 
 ## Setup
 
-1. Run the server: `python app.py`
+1. Run the server: `uv run python app.py app.py`
 2. Open http://localhost:5000 in your browser
 3. Play the game - you'll see placeholder results until you complete the exercises
 
